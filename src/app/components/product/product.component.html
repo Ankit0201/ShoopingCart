@@ -1,0 +1,59 @@
+<h1 *ngIf="this.shop.check()" class="user" >Welcome:{{data}}</h1>
+
+<!-- <div class="row no-gutters mt-5">
+<div   class=" card hell col-md-4"  *ngFor="let data of products">
+    
+    <div>
+        <img class="card-img-top" src="{{data.image}}" style="height:300px" alt="Card image">
+        <div class="card-body">
+          <h5 class="card-title">CATEGORY:{{data.category | uppercase}}</h5>
+          <p class="card-text text-success">PRICE:{{data.price | currency:"INR"}}</p>
+          <div>
+          <a (click)="add(data.Id)" class="btn btn-danger">ADD TO CART</a><span>
+            <button class="btn btn-success" [routerLink]="['/chart',data.Id]" >View Details</button>
+          </span>
+        </div>
+        </div>
+      </div>
+      </div>
+      
+    </div> -->
+    <div class="row container">
+      <div class="col-md-6" *ngFor="let data of products">
+        <div class="card mb-4 shadow-sm">
+          <img class="bd-placeholder-img card-img-top p-2" style="height:500px; width:100%"
+            src="{{data.image}}" />
+        
+          <div class="card-body">
+      
+            <p class="text-center">
+              <strong>{{data.category | uppercase}}</strong>
+             
+            </p>
+            <p class="card-text">
+              <strong>{{ data.price | currency:'USD' }}</strong>
+              <i *ngIf="!addedToWishlist" class="fa fa-heart-o float-right" (click)="handleAddToWishlist()"></i>
+              <i *ngIf="addedToWishlist" class="fa fa-heart float-right" (click)="handleAddToWishlist()"></i>
+            </p>
+            <p class="card-text">{{data.description | slice:0:150}}....</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button
+                 (click)="add(data.Id)"
+                   type="button"
+                    class="btn btn-sm btn-success  product-btn">
+                    Add to Cart</button>
+                <button 
+                type="button" 
+                class="btn btn-sm btn-primary product-btn"
+                [routerLink]="['/chart',data.Id]">
+                View Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    
+      

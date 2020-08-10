@@ -1,0 +1,50 @@
+<div class="container">
+    <form [formGroup]="myform"  (ngSubmit)="set()" class="form-horizontal" role="form">
+        <h2>Registration</h2>
+        <div class="form-group">
+            <label for="firstName" class="col-sm-3 control-label">First Name</label>
+            <div class="col-sm-9">
+               
+                <input type="text"  autocomplete="off" formControlName="fname" id="firstName" placeholder="First Name" class="form-control" autofocus>
+          <span *ngIf="myform.get('fname').touched">
+               <span *ngIf="myform.get('fname').hasError('required')" class="text-danger">Please fill Name</span>
+            </span>
+   
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+            <div class="col-sm-9">
+                <input type="text" autocomplete="off" formControlName="lname" id="lastName" placeholder="Last Name" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Email* </label>
+            <div class="col-sm-9">
+                <input type="email" formControlName="email" id="email" placeholder="Email" class="form-control" name= "email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password*</label>
+            <div class="col-sm-9">
+                <input type="password" formControlName="password" id="password" placeholder="Password" class="form-control">
+            </div>
+        </div>
+               <div class="form-group">
+            <label for="birthDate" class="col-sm-3 control-label">Date of Birth*</label>
+            <div class="col-sm-9">
+                <input type="date" id="birthDate" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber" class="col-sm-3 control-label">Phone number </label>
+            <div class="col-sm-9">
+                <input type="number" formControlName="phone" id="phoneNumber" placeholder="Phone number" class="form-control">
+                 
+            </div>
+        </div>
+           
+      
+        <button type="submit"  class="btn btn-primary btn-block" [disabled]="!myform.valid">Register</button>
+    </form> <!-- /form -->
+</div> <!-- ./container -->

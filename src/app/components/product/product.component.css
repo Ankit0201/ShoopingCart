@@ -1,0 +1,13 @@
+.hell{
+    margin:60px;
+}
+button{
+margin: 13px;
+}
+.user{
+    background-color: aqua;
+    text-align: center;
+}
+.fa-heart-o,.fa-heart{
+    color: red;
+}

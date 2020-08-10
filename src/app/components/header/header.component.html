@@ -1,0 +1,22 @@
+
+    <header>   
+     <nav class="navbar navbar-dark bg-danger">
+      <button [routerLink]="['/product']" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul class="d-flex text-light m-3">
+        <li [routerLink]="['/product']">Items</li>
+        <li [routerLink]="['/login']" *ngIf="!this.shop.check()">Login</li>
+        <li [routerLink]="['/signup']" *ngIf="!this.shop.check()">Signup</li>
+        <li *ngIf="this.shop.check()" [routerLink]="['/viewcart']"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></li>
+        <li *ngIf="this.shop.check()" (click)="logout()">Logout</li>
+      
+       
+    </ul>
+    </nav>
+   
+</header>
+
+
+
+  

@@ -1,0 +1,87 @@
+<!-- <h1 class="text-success text-center" *ngIf="this.show">Your Cart is Empty</h1>
+
+
+<div *ngFor="let details of cartDetails,index as ind">
+<div  >
+    <table border="1" style="overflow-x:auto;">
+        <thead>
+            <tr>
+                <th>Images</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th colspan="3">Action</th>
+            </tr>
+        </thead>
+        <tbody  >
+            <td><img src="{{details.image}}" ></td>
+            <td><h1 class="text-danger">{{details.category | uppercase}}</h1></td>
+            <td><h5 class="text-success">{{details.price * details.quantity | currency:"USD"}}</h5></td>
+            <td><h6 class="text-primary">{{details.quantity}}</h6></td>
+            <td><button class="btn btn-success" (click)="add(ind)">+</button></td>
+            <td><button class="btn btn-danger" (click)="dec(ind)" >-</button></td>
+            <td><button (click)="dele(ind)" class="btn btn-light"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+        </tbody>
+    </table>
+</div>
+
+</div>
+<button class="btn btn-success" (click)="checkout()">CheckOut </button>
+<h1 class="text-danger" >PRICE:{{this.totalPrice}}</h1> -->
+
+
+
+ <div class="main">
+
+  
+    <section class="shopping-cart" >
+      <ol class="ui-list shopping-cart--list"  *ngFor="let details of cartDetails,index as ind">
+  
+        <div  type="text/template">
+          <li class="_grid shopping-cart--list-item row">
+            <div class="_column product-image col-md-4 col-11 mx-auto">
+              <img class="product-image--img" width="100px"  src="{{details.image}}" alt="Item image" />
+            </div>
+            <div class="_column product-info col-sm-6  mx-auto">
+              <h4 class="product-name">{{details.category | uppercase}}</h4>
+              <p class="product-desc text-info">{{details.description | slice:0:100}}..</p>
+              <div class="price product-single-price">{{details.price}}</div>
+            </div>
+            <div class="_column product-modifiers col-md-2 col-11 mx-auto">
+              <div class="_grid">
+                <button class="_btn _column product-subtract" (click)="dec(ind)">-</button>
+                <div class="_column product-qty">{{details.quantity}}</div>
+                <button class="_btn _column product-plus"  (click)="add(ind)">+</button>
+              </div>
+              <button class="_btn entypo-trash product-remove">Remove</button>
+              <div class="price product-total-price">{{details.price * details.quantity | currency:"USD"}}</div>
+            </div>
+          </li>
+        </div>
+  
+      </ol>
+  
+      <footer class="_grid cart-totals">
+        <div class="_column subtotal" id="subtotalCtr">
+          <div class="cart-totals-key">Subtotal</div>
+          <div class="cart-totals-value">$0.00</div>
+        </div>
+        <div class="_column shipping" id="shippingCtr">
+          <div class="cart-totals-key">Shipping</div>
+          <div class="cart-totals-value">$0.00</div>
+        </div>
+        <div class="_column taxes" id="taxesCtr">
+          <div class="cart-totals-key">Taxes (6%)</div>
+          <div class="cart-totals-value">$0.00</div>
+        </div>
+        <div class="_column total" id="totalCtr">
+          <div class="cart-totals-key">Total</div>
+          <div class="cart-totals-value">$0.00</div>
+        </div>
+        <div class="_column checkout">
+          <button class="_btn checkout-btn entypo-forward">Checkout</button>
+        </div>
+      </footer>
+  
+    </section>
+  </div> 
